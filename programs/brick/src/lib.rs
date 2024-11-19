@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA");
+declare_id!("6BYQi9dkqEq5dijYDNPKf6494cm9C5mk9Ru9tx8YLams");
 
 #[program]
 pub mod brick {

@@ -21,7 +21,7 @@ cfg_if::cfg_if! {
     } else if #[cfg(feature = "staging")] {
         declare_id!("stag8sTKds2h4KzjUw3zKTsxbqvT4XKHdaR9X9E6Rct");
     } else {
-        declare_id!("2jGhuVUuy3umdzByFx8sNWUAaf5vaeuDm78RDPEnhrMr");
+        declare_id!("Ao4JxeKeL8D97J5Gac8sXDmwCLcZUsnBofrTC1L3awkd");
     }
 }
 

@@ -24,7 +24,7 @@ cfg_if::cfg_if! {
         pub const PYTH_ID: Pubkey = pubkey!("FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH");
     } else {
         // The key of the mock program on localnet (see its declared id)
-        pub const PYTH_ID: Pubkey = pubkey!("5XaaR94jBubdbrRrNW7DtRvZeWvLhSHkEGU3jHTEXV3C");
+        pub const PYTH_ID: Pubkey = pubkey!("6Wi2NdukWW8TfmcmCzLtxvRZYDxWg97EpvxmvVcz8M63");
     }
 }
 

@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
+no-idl = []
 idl-build = []
 no-entrypoint = []
 ignore-fee-deploy = []

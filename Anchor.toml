@@ -1,26 +1,25 @@
 [toolchain]
 anchor_version = "0.30.1"
-solana_version = "1.18.11"
+solana_version = "1.18.15"
 
 [features]
 resolution = true
 skip-lint = false
 
 [programs.localnet]
-liquidity_incentive_program = "Lip1111111111111111111111111111111111111111"
-marginfi = "2jGhuVUuy3umdzByFx8sNWUAaf5vaeuDm78RDPEnhrMr"
-mocks = "5XaaR94jBubdbrRrNW7DtRvZeWvLhSHkEGU3jHTEXV3C"
+liquidity_incentive_program = "Ei47NwfvnuRB5EKq99WWhs3dujJE46RC6pkYKaiNSiTi"
+marginfi = "Ao4JxeKeL8D97J5Gac8sXDmwCLcZUsnBofrTC1L3awkd"
+mocks = "6Wi2NdukWW8TfmcmCzLtxvRZYDxWg97EpvxmvVcz8M63"
 
 [programs.mainnet]
-liquidity_incentive_program = "LipsxuAkFkwa4RKNzn51wAsW7Dedzt1RNHMkTkDEZUW"
-marginfi = "MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA"
+liquidity_incentive_program = "Ei47NwfvnuRB5EKq99WWhs3dujJE46RC6pkYKaiNSiTi"
+marginfi = "Ao4JxeKeL8D97J5Gac8sXDmwCLcZUsnBofrTC1L3awkd"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
-# cluster = "https://devnet.rpcpool.com/"
+cluster = "Localnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
