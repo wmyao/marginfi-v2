@@ -11,6 +11,9 @@ liquidity_incentive_program = "Ei47NwfvnuRB5EKq99WWhs3dujJE46RC6pkYKaiNSiTi"
 marginfi = "Ao4JxeKeL8D97J5Gac8sXDmwCLcZUsnBofrTC1L3awkd"
 mocks = "6Wi2NdukWW8TfmcmCzLtxvRZYDxWg97EpvxmvVcz8M63"
 
+[programs.devnet]
+marginfi = "Ao4JxeKeL8D97J5Gac8sXDmwCLcZUsnBofrTC1L3awkd"
+
 [programs.mainnet]
 liquidity_incentive_program = "Ei47NwfvnuRB5EKq99WWhs3dujJE46RC6pkYKaiNSiTi"
 marginfi = "Ao4JxeKeL8D97J5Gac8sXDmwCLcZUsnBofrTC1L3awkd"

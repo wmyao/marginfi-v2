@@ -1377,6 +1377,8 @@ impl BankConfig {
         let liab_maint_w = I80F48::from(self.liability_weight_maint);
 
         check!(liab_init_w >= I80F48::ONE, MarginfiError::InvalidConfig);
+        msg!("************************* liab_maint_w: {}", liab_maint_w);
+        msg!("************************* liab_init_w: {}", liab_init_w);
         check!(
             liab_maint_w <= liab_init_w && liab_maint_w >= I80F48::ONE,
             MarginfiError::InvalidConfig

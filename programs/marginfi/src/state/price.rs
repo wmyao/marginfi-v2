@@ -872,6 +872,10 @@ fn pyth_price_components_to_i80f48(price: I80F48, exponent: i32) -> MarginfiResu
 
 /// Load and validate a pyth price feed account.
 fn load_pyth_price_feed(ai: &AccountInfo) -> MarginfiResult<PriceFeed> {
+    msg!("************************* ai.key: {}", ai.key);
+    msg!("************************* ai.owner: {}", ai.owner);
+    msg!("************************* PYTH_ID: {}", PYTH_ID);
+    msg!("************************* &PYTH_ID: {}", &PYTH_ID);
     check!(ai.owner.eq(&PYTH_ID), MarginfiError::InvalidOracleAccount);
     let price_feed = SolanaPriceAccount::account_info_to_feed(ai)
         .map_err(|_| MarginfiError::InvalidOracleAccount)?;
