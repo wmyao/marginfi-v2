@@ -15,13 +15,13 @@ use state::marginfi_group::{BankConfigCompact, BankConfigOpt};
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "mainnet-beta")] {
-        declare_id!("MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA");
+        declare_id!("Aa8yTDViMCwG7GuVK7nRUABiycPZg6xTUt5Z4DVRaNK6");
     } else if #[cfg(feature = "devnet")] {
-        declare_id!("Ao4JxeKeL8D97J5Gac8sXDmwCLcZUsnBofrTC1L3awkd");
+        declare_id!("Aa8yTDViMCwG7GuVK7nRUABiycPZg6xTUt5Z4DVRaNK6");
     } else if #[cfg(feature = "staging")] {
-        declare_id!("stag8sTKds2h4KzjUw3zKTsxbqvT4XKHdaR9X9E6Rct");
+        declare_id!("Aa8yTDViMCwG7GuVK7nRUABiycPZg6xTUt5Z4DVRaNK6");
     } else {
-        declare_id!("Ao4JxeKeL8D97J5Gac8sXDmwCLcZUsnBofrTC1L3awkd");
+        declare_id!("Aa8yTDViMCwG7GuVK7nRUABiycPZg6xTUt5Z4DVRaNK6");
     }
 }
 
