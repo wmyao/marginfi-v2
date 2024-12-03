@@ -191,6 +191,8 @@ impl<'info> BankAccountWithPriceFeed<'_, 'info> {
 
                 let bank_ai = remaining_ais.get(bank_index).unwrap();
 
+                msg!("************************* marginfi_account.rs:194:balance.bank_pk: {}", balance.bank_pk);
+                msg!("************************* marginfi_account.rs:195:bank_ai.key: {}", bank_ai.key);
                 check!(
                     balance.bank_pk.eq(bank_ai.key),
                     MarginfiError::InvalidBankAccount
@@ -329,10 +331,12 @@ impl<'info> BankAccountWithPriceFeed<'_, 'info> {
     }
 
     fn try_get_price_feed(&self) -> std::result::Result<&OraclePriceFeedAdapter, PriceFeedError> {
+        msg!("############### marginfi_account.rs:334:try_get_price_feed");
         match self.price_feed.as_ref() {
             Ok(a) => Ok(a),
             #[allow(unused_variables)]
             Err(e) => {
+                msg!("############### marginfi_account.rs:339:try_get_price_feed {:?}", e);
                 debug!("Price feed error: {:?}", e);
                 Err(PriceFeedError::StaleOracle)
             }
