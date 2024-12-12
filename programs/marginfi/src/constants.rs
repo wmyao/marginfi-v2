@@ -19,21 +19,25 @@ pub const EMISSIONS_TOKEN_ACCOUNT_SEED: &str = "emissions_token_account_seed";
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "devnet")] {
-        pub const PYTH_ID: Pubkey = pubkey!("gSbePebfvPy7tRqimPoVecS2UsBvYv46ynrzWocc92s");  // marginfi oracle
-        // pub const PYTH_ID: Pubkey = pubkey!("rec5EKMGg6MxZYaMdyBfgwp4d5rB9T1VQH5pJv5LtFJ");     // new oracle account
+        pub const PYTH_ID: Pubkey = pubkey!("gSbePebfvPy7tRqimPoVecS2UsBvYv46ynrzWocc92s"); // marginfi oracle
+        // pub const PYTH_ID: Pubkey = pubkey!("rec5EKMGg6MxZYaMdyBfgwp4d5rB9T1VQH5pJv5LtFJ"); // new oracle account
     } else if #[cfg(any(feature = "mainnet-beta", feature = "staging"))] {
         pub const PYTH_ID: Pubkey = pubkey!("FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH");
     } else {
-        // The key of the mock program on localnet (see its declared id)
         pub const PYTH_ID: Pubkey = pubkey!("6Wi2NdukWW8TfmcmCzLtxvRZYDxWg97EpvxmvVcz8M63");
     }
+    // The key of the mock program on localnet (see its declared id)
 }
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "devnet")] {
-        pub const SWITCHBOARD_PULL_ID: Pubkey = pubkey!("Aio4gaXjXzJNVLtzwtNVmSqGKpANtXhybbkhtAC94ji2");
+        pub const SWITCHBOARD_PULL_ID: Pubkey = pubkey!(
+            "Aio4gaXjXzJNVLtzwtNVmSqGKpANtXhybbkhtAC94ji2"
+        );
     } else {
-        pub const SWITCHBOARD_PULL_ID: Pubkey = pubkey!("SBondMDrcV3K4kxZR1HNVT7osZxAHVHgYXL5Ze1oMUv");
+        pub const SWITCHBOARD_PULL_ID: Pubkey = pubkey!(
+            "SBondMDrcV3K4kxZR1HNVT7osZxAHVHgYXL5Ze1oMUv"
+        );
     }
 }
 
@@ -88,54 +92,54 @@ pub const MIN_EMISSIONS_START_TIME: u64 = 1681989983;
 
 pub const MAX_EXP_10_I80F48: usize = 24;
 pub const EXP_10_I80F48: [I80F48; MAX_EXP_10_I80F48] = [
-    I80F48!(1),                        // 10^0
-    I80F48!(10),                       // 10^1
-    I80F48!(100),                      // 10^2
-    I80F48!(1000),                     // 10^3
-    I80F48!(10000),                    // 10^4
-    I80F48!(100000),                   // 10^5
-    I80F48!(1000000),                  // 10^6
-    I80F48!(10000000),                 // 10^7
-    I80F48!(100000000),                // 10^8
-    I80F48!(1000000000),               // 10^9
-    I80F48!(10000000000),              // 10^10
-    I80F48!(100000000000),             // 10^11
-    I80F48!(1000000000000),            // 10^12
-    I80F48!(10000000000000),           // 10^13
-    I80F48!(100000000000000),          // 10^14
-    I80F48!(1000000000000000),         // 10^15
-    I80F48!(10000000000000000),        // 10^16
-    I80F48!(100000000000000000),       // 10^17
-    I80F48!(1000000000000000000),      // 10^18
-    I80F48!(10000000000000000000),     // 10^19
-    I80F48!(100000000000000000000),    // 10^20
-    I80F48!(1000000000000000000000),   // 10^21
-    I80F48!(10000000000000000000000),  // 10^22
+    I80F48!(1), // 10^0
+    I80F48!(10), // 10^1
+    I80F48!(100), // 10^2
+    I80F48!(1000), // 10^3
+    I80F48!(10000), // 10^4
+    I80F48!(100000), // 10^5
+    I80F48!(1000000), // 10^6
+    I80F48!(10000000), // 10^7
+    I80F48!(100000000), // 10^8
+    I80F48!(1000000000), // 10^9
+    I80F48!(10000000000), // 10^10
+    I80F48!(100000000000), // 10^11
+    I80F48!(1000000000000), // 10^12
+    I80F48!(10000000000000), // 10^13
+    I80F48!(100000000000000), // 10^14
+    I80F48!(1000000000000000), // 10^15
+    I80F48!(10000000000000000), // 10^16
+    I80F48!(100000000000000000), // 10^17
+    I80F48!(1000000000000000000), // 10^18
+    I80F48!(10000000000000000000), // 10^19
+    I80F48!(100000000000000000000), // 10^20
+    I80F48!(1000000000000000000000), // 10^21
+    I80F48!(10000000000000000000000), // 10^22
     I80F48!(100000000000000000000000), // 10^23
 ];
 
 pub const MAX_EXP_10: usize = 21;
 pub const EXP_10: [i128; MAX_EXP_10] = [
-    1,                     // 10^0
-    10,                    // 10^1
-    100,                   // 10^2
-    1000,                  // 10^3
-    10000,                 // 10^4
-    100000,                // 10^5
-    1000000,               // 10^6
-    10000000,              // 10^7
-    100000000,             // 10^8
-    1000000000,            // 10^9
-    10000000000,           // 10^10
-    100000000000,          // 10^11
-    1000000000000,         // 10^12
-    10000000000000,        // 10^13
-    100000000000000,       // 10^14
-    1000000000000000,      // 10^15
-    10000000000000000,     // 10^16
-    100000000000000000,    // 10^17
-    1000000000000000000,   // 10^18
-    10000000000000000000,  // 10^19
+    1, // 10^0
+    10, // 10^1
+    100, // 10^2
+    1000, // 10^3
+    10000, // 10^4
+    100000, // 10^5
+    1000000, // 10^6
+    10000000, // 10^7
+    100000000, // 10^8
+    1000000000, // 10^9
+    10000000000, // 10^10
+    100000000000, // 10^11
+    1000000000000, // 10^12
+    10000000000000, // 10^13
+    100000000000000, // 10^14
+    1000000000000000, // 10^15
+    10000000000000000, // 10^16
+    100000000000000000, // 10^17
+    1000000000000000000, // 10^18
+    10000000000000000000, // 10^19
     100000000000000000000, // 10^20
 ];
 
