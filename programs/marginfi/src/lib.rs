@@ -11,17 +11,17 @@ use anchor_lang::prelude::*;
 use instructions::*;
 use prelude::*;
 use state::marginfi_group::WrappedI80F48;
-use state::marginfi_group::{BankConfigCompact, BankConfigOpt};
+use state::marginfi_group::{ BankConfigCompact, BankConfigOpt };
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "mainnet-beta")] {
-        declare_id!("Aa8yTDViMCwG7GuVK7nRUABiycPZg6xTUt5Z4DVRaNK6");
+        declare_id!("6fa2wwh9WdxLEpguWR62Ex7DzzgWrCkDd7xdtiF6SeSi");
     } else if #[cfg(feature = "devnet")] {
-        declare_id!("Aa8yTDViMCwG7GuVK7nRUABiycPZg6xTUt5Z4DVRaNK6");
+        declare_id!("6fa2wwh9WdxLEpguWR62Ex7DzzgWrCkDd7xdtiF6SeSi");
     } else if #[cfg(feature = "staging")] {
-        declare_id!("Aa8yTDViMCwG7GuVK7nRUABiycPZg6xTUt5Z4DVRaNK6");
+        declare_id!("6fa2wwh9WdxLEpguWR62Ex7DzzgWrCkDd7xdtiF6SeSi");
     } else {
-        declare_id!("Aa8yTDViMCwG7GuVK7nRUABiycPZg6xTUt5Z4DVRaNK6");
+        declare_id!("6fa2wwh9WdxLEpguWR62Ex7DzzgWrCkDd7xdtiF6SeSi");
     }
 }
 
@@ -35,14 +35,14 @@ pub mod marginfi {
 
     pub fn marginfi_group_configure(
         ctx: Context<MarginfiGroupConfigure>,
-        config: GroupConfig,
+        config: GroupConfig
     ) -> MarginfiResult {
         marginfi_group::configure(ctx, config)
     }
 
     pub fn lending_pool_add_bank(
         ctx: Context<LendingPoolAddBank>,
-        bank_config: BankConfigCompact,
+        bank_config: BankConfigCompact
     ) -> MarginfiResult {
         marginfi_group::lending_pool_add_bank(ctx, bank_config.into())
     }
@@ -53,14 +53,14 @@ pub mod marginfi {
     pub fn lending_pool_add_bank_with_seed(
         ctx: Context<LendingPoolAddBankWithSeed>,
         bank_config: BankConfigCompact,
-        bank_seed: u64,
+        bank_seed: u64
     ) -> MarginfiResult {
         marginfi_group::lending_pool_add_bank_with_seed(ctx, bank_config.into(), bank_seed)
     }
 
     pub fn lending_pool_configure_bank(
         ctx: Context<LendingPoolConfigureBank>,
-        bank_config_opt: BankConfigOpt,
+        bank_config_opt: BankConfigOpt
     ) -> MarginfiResult {
         marginfi_group::lending_pool_configure_bank(ctx, bank_config_opt)
     }
@@ -69,7 +69,7 @@ pub mod marginfi {
         ctx: Context<LendingPoolSetupEmissions>,
         flags: u64,
         rate: u64,
-        total_emissions: u64,
+        total_emissions: u64
     ) -> MarginfiResult {
         marginfi_group::lending_pool_setup_emissions(ctx, flags, rate, total_emissions)
     }
@@ -78,19 +78,19 @@ pub mod marginfi {
         ctx: Context<LendingPoolUpdateEmissionsParameters>,
         emissions_flags: Option<u64>,
         emissions_rate: Option<u64>,
-        additional_emissions: Option<u64>,
+        additional_emissions: Option<u64>
     ) -> MarginfiResult {
         marginfi_group::lending_pool_update_emissions_parameters(
             ctx,
             emissions_flags,
             emissions_rate,
-            additional_emissions,
+            additional_emissions
         )
     }
 
     /// Handle bad debt of a bankrupt marginfi account for a given bank.
     pub fn lending_pool_handle_bankruptcy<'info>(
-        ctx: Context<'_, '_, 'info, 'info, LendingPoolHandleBankruptcy<'info>>,
+        ctx: Context<'_, '_, 'info, 'info, LendingPoolHandleBankruptcy<'info>>
     ) -> MarginfiResult {
         marginfi_group::lending_pool_handle_bankruptcy(ctx)
     }
@@ -104,7 +104,7 @@ pub mod marginfi {
 
     pub fn lending_account_deposit<'info>(
         ctx: Context<'_, '_, 'info, 'info, LendingAccountDeposit<'info>>,
-        amount: u64,
+        amount: u64
     ) -> MarginfiResult {
         marginfi_account::lending_account_deposit(ctx, amount)
     }
@@ -112,7 +112,7 @@ pub mod marginfi {
     pub fn lending_account_repay<'info>(
         ctx: Context<'_, '_, 'info, 'info, LendingAccountRepay<'info>>,
         amount: u64,
-        repay_all: Option<bool>,
+        repay_all: Option<bool>
     ) -> MarginfiResult {
         marginfi_account::lending_account_repay(ctx, amount, repay_all)
     }
@@ -120,32 +120,32 @@ pub mod marginfi {
     pub fn lending_account_withdraw<'info>(
         ctx: Context<'_, '_, 'info, 'info, LendingAccountWithdraw<'info>>,
         amount: u64,
-        withdraw_all: Option<bool>,
+        withdraw_all: Option<bool>
     ) -> MarginfiResult {
         marginfi_account::lending_account_withdraw(ctx, amount, withdraw_all)
     }
 
     pub fn lending_account_borrow<'info>(
         ctx: Context<'_, '_, 'info, 'info, LendingAccountBorrow<'info>>,
-        amount: u64,
+        amount: u64
     ) -> MarginfiResult {
         marginfi_account::lending_account_borrow(ctx, amount)
     }
 
     pub fn lending_account_close_balance(
-        ctx: Context<LendingAccountCloseBalance>,
+        ctx: Context<LendingAccountCloseBalance>
     ) -> MarginfiResult {
         marginfi_account::lending_account_close_balance(ctx)
     }
 
     pub fn lending_account_withdraw_emissions<'info>(
-        ctx: Context<'_, '_, 'info, 'info, LendingAccountWithdrawEmissions<'info>>,
+        ctx: Context<'_, '_, 'info, 'info, LendingAccountWithdrawEmissions<'info>>
     ) -> MarginfiResult {
         marginfi_account::lending_account_withdraw_emissions(ctx)
     }
 
     pub fn lending_account_settle_emissions(
-        ctx: Context<LendingAccountSettleEmissions>,
+        ctx: Context<LendingAccountSettleEmissions>
     ) -> MarginfiResult {
         marginfi_account::lending_account_settle_emissions(ctx)
     }
@@ -153,47 +153,47 @@ pub mod marginfi {
     /// Liquidate a lending account balance of an unhealthy marginfi account
     pub fn lending_account_liquidate<'info>(
         ctx: Context<'_, '_, 'info, 'info, LendingAccountLiquidate<'info>>,
-        asset_amount: u64,
+        asset_amount: u64
     ) -> MarginfiResult {
         marginfi_account::lending_account_liquidate(ctx, asset_amount)
     }
 
     pub fn lending_account_start_flashloan(
         ctx: Context<LendingAccountStartFlashloan>,
-        end_index: u64,
+        end_index: u64
     ) -> MarginfiResult {
         marginfi_account::lending_account_start_flashloan(ctx, end_index)
     }
 
     pub fn lending_account_end_flashloan<'info>(
-        ctx: Context<'_, '_, 'info, 'info, LendingAccountEndFlashloan<'info>>,
+        ctx: Context<'_, '_, 'info, 'info, LendingAccountEndFlashloan<'info>>
     ) -> MarginfiResult {
         marginfi_account::lending_account_end_flashloan(ctx)
     }
 
     // Operational instructions
     pub fn lending_pool_accrue_bank_interest(
-        ctx: Context<LendingPoolAccrueBankInterest>,
+        ctx: Context<LendingPoolAccrueBankInterest>
     ) -> MarginfiResult {
         marginfi_group::lending_pool_accrue_bank_interest(ctx)
     }
 
     pub fn lending_pool_collect_bank_fees<'info>(
-        ctx: Context<'_, '_, 'info, 'info, LendingPoolCollectBankFees<'info>>,
+        ctx: Context<'_, '_, 'info, 'info, LendingPoolCollectBankFees<'info>>
     ) -> MarginfiResult {
         marginfi_group::lending_pool_collect_bank_fees(ctx)
     }
 
     pub fn lending_pool_withdraw_fees<'info>(
         ctx: Context<'_, '_, 'info, 'info, LendingPoolWithdrawFees<'info>>,
-        amount: u64,
+        amount: u64
     ) -> MarginfiResult {
         marginfi_group::lending_pool_withdraw_fees(ctx, amount)
     }
 
     pub fn lending_pool_withdraw_insurance<'info>(
         ctx: Context<'_, '_, 'info, 'info, LendingPoolWithdrawInsurance<'info>>,
-        amount: u64,
+        amount: u64
     ) -> MarginfiResult {
         marginfi_group::lending_pool_withdraw_insurance(ctx, amount)
     }
@@ -207,7 +207,7 @@ pub mod marginfi {
     }
 
     pub fn set_new_account_authority(
-        ctx: Context<MarginfiAccountSetAccountAuthority>,
+        ctx: Context<MarginfiAccountSetAccountAuthority>
     ) -> MarginfiResult {
         marginfi_account::set_account_transfer_authority(ctx)
     }
@@ -224,7 +224,7 @@ pub mod marginfi {
         fee_wallet: Pubkey,
         bank_init_flat_sol_fee: u32,
         program_fee_fixed: WrappedI80F48,
-        program_fee_rate: WrappedI80F48,
+        program_fee_rate: WrappedI80F48
     ) -> MarginfiResult {
         marginfi_group::initialize_fee_state(
             ctx,
@@ -232,7 +232,7 @@ pub mod marginfi {
             fee_wallet,
             bank_init_flat_sol_fee,
             program_fee_fixed,
-            program_fee_rate,
+            program_fee_rate
         )
     }
 
@@ -242,14 +242,14 @@ pub mod marginfi {
         fee_wallet: Pubkey,
         bank_init_flat_sol_fee: u32,
         program_fee_fixed: WrappedI80F48,
-        program_fee_rate: WrappedI80F48,
+        program_fee_rate: WrappedI80F48
     ) -> MarginfiResult {
         marginfi_group::edit_fee_state(
             ctx,
             fee_wallet,
             bank_init_flat_sol_fee,
             program_fee_fixed,
-            program_fee_rate,
+            program_fee_rate
         )
     }
 
