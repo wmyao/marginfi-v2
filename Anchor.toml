@@ -7,16 +7,16 @@ resolution = true
 skip-lint = false
 
 [programs.devnet]
-marginfi = "6fa2wwh9WdxLEpguWR62Ex7DzzgWrCkDd7xdtiF6SeSi"
+marginfi = "BaHsySqRkUu7j2CRq73kCapzzP6GnwWtbYGazmAnmrDr"
 
 [programs.localnet]
-liquidity_incentive_program = "GeewiuJeutKMn8J2j3xPiMzbJx1DA7hg6kuQqam3cDAm"
-marginfi = "6fa2wwh9WdxLEpguWR62Ex7DzzgWrCkDd7xdtiF6SeSi"
-mocks = "FhKj2zxWJnsfGi76mTp6HcTrhPJdw8Lepv7xRQMBGxsi"
+liquidity_incentive_program = "8weyHdR5fZQHhjhNmpYL2p7zGJhFfybyLUJQ82SyZd7s"
+marginfi = "BaHsySqRkUu7j2CRq73kCapzzP6GnwWtbYGazmAnmrDr"
+mocks = "2KmpyMMu2bcs749NK2eEYV1sU342XRErR5WytdvonKfC"
 
 [programs.mainnet]
-liquidity_incentive_program = "GeewiuJeutKMn8J2j3xPiMzbJx1DA7hg6kuQqam3cDAm"
-marginfi = "6fa2wwh9WdxLEpguWR62Ex7DzzgWrCkDd7xdtiF6SeSi"
+liquidity_incentive_program = "8weyHdR5fZQHhjhNmpYL2p7zGJhFfybyLUJQ82SyZd7s"
+marginfi = "BaHsySqRkUu7j2CRq73kCapzzP6GnwWtbYGazmAnmrDr"
 
 [registry]
 url = "https://api.apr.dev"

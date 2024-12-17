@@ -24,7 +24,7 @@ cfg_if::cfg_if! {
     } else if #[cfg(any(feature = "mainnet-beta", feature = "staging"))] {
         pub const PYTH_ID: Pubkey = pubkey!("FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH");
     } else {
-        pub const PYTH_ID: Pubkey = pubkey!("FhKj2zxWJnsfGi76mTp6HcTrhPJdw8Lepv7xRQMBGxsi");
+        pub const PYTH_ID: Pubkey = pubkey!("2KmpyMMu2bcs749NK2eEYV1sU342XRErR5WytdvonKfC");
     }
     // The key of the mock program on localnet (see its declared id)
 }
