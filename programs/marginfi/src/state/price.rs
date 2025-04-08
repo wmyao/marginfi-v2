@@ -104,11 +104,11 @@ impl OraclePriceFeedAdapter {
             OracleSetup::None => Err(MarginfiError::OracleNotSetup.into()),
             OracleSetup::PythLegacy => {
                 check!(ais.len() == 1, MarginfiError::InvalidOracleAccount);
-                msg!("************************* price.rs:97:ais[0].key: {}", ais[0].key);
-                msg!(
-                    "************************* price.rs:98:bank_config.oracle_keys[0]: {}",
-                    &bank_config.oracle_keys[0]
-                );
+                // msg!("************************* price.rs:97:ais[0].key: {}", ais[0].key);
+                // msg!(
+                //     "************************* price.rs:98:bank_config.oracle_keys[0]: {}",
+                //     &bank_config.oracle_keys[0]
+                // );
                 check!(
                     ais[0].key == &bank_config.oracle_keys[0],
                     MarginfiError::InvalidOracleAccount
@@ -248,28 +248,28 @@ pub struct PythLegacyPriceFeed {
 impl PythLegacyPriceFeed {
     pub fn load_checked(ai: &AccountInfo, current_time: i64, max_age: u64) -> MarginfiResult<Self> {
         let price_feed = load_pyth_price_feed(ai)?;
-        msg!("############### price.rs:218");
-        msg!("############### price.rs:218: current_time {}", current_time);
-        msg!("############### price.rs:218: max_age {}", max_age);
+        // msg!("############### price.rs:218");
+        // msg!("############### price.rs:218: current_time {}", current_time);
+        // msg!("############### price.rs:218: max_age {}", max_age);
 
         let test_price = price_feed.get_ema_price_unchecked();
         let time_diff_abs = (test_price.publish_time - current_time).abs() as u64;
-        msg!("############### price.rs:224 test_price.publish_time: {}", test_price.publish_time);
-        msg!("############### price.rs:224 time_diff_abs: {}", time_diff_abs);
-        msg!("############### price.rs:224 test_price: {}", test_price.price);
+        // msg!("############### price.rs:224 test_price.publish_time: {}", test_price.publish_time);
+        // msg!("############### price.rs:224 time_diff_abs: {}", time_diff_abs);
+        // msg!("############### price.rs:224 test_price: {}", test_price.price);
 
         let max_age_adj = max_age * 1000;
-        msg!("############### price.rs:224 max_age_adj: {}", max_age_adj);
+        // msg!("############### price.rs:224 max_age_adj: {}", max_age_adj);
 
         let ema_price = price_feed
             .get_ema_price_no_older_than(current_time, max_age_adj)
             .ok_or(MarginfiError::StaleOracle)?;
-        msg!("############### price.rs:235 ema_price {}", ema_price.price);
+        // msg!("############### price.rs:235 ema_price {}", ema_price.price);
 
         let price = price_feed
             .get_price_no_older_than(current_time, max_age_adj)
             .ok_or(MarginfiError::StaleOracle)?;
-        msg!("############### price.rs:237 price {}", price.price);
+        // msg!("############### price.rs:237 price {}", price.price);
 
         Ok(Self {
             ema_price: Box::new(ema_price),
@@ -366,11 +366,11 @@ impl SwitchboardPullPriceFeed {
         // Check staleness
         let last_updated = feed.last_update_timestamp;
         if current_timestamp.saturating_sub(last_updated) > (max_age as i64) {
-            msg!(
-                "############### price.rs:237 time diff: {}",
-                current_timestamp.saturating_sub(last_updated)
-            );
-            msg!("############### price.rs:237 max_age: {}", max_age);
+            // msg!(
+            //     "############### price.rs:237 time diff: {}",
+            //     current_timestamp.saturating_sub(last_updated)
+            // );
+            // msg!("############### price.rs:237 max_age: {}", max_age);
             return err!(MarginfiError::StaleOracle);
         }
 
@@ -855,16 +855,16 @@ fn pyth_price_components_to_i80f48(price: I80F48, exponent: i32) -> MarginfiResu
 
 /// Load and validate a pyth price feed account.
 fn load_pyth_price_feed(ai: &AccountInfo) -> MarginfiResult<PriceFeed> {
-    msg!("************************* ai.key: {}", ai.key);
-    msg!("************************* ai.owner: {}", ai.owner);
-    msg!("************************* PYTH_ID: {}", PYTH_ID);
-    msg!("************************* &PYTH_ID: {}", &PYTH_ID);
+    // msg!("************************* ai.key: {}", ai.key);
+    // msg!("************************* ai.owner: {}", ai.owner);
+    // msg!("************************* PYTH_ID: {}", PYTH_ID);
+    // msg!("************************* &PYTH_ID: {}", &PYTH_ID);
     check!(ai.owner.eq(&PYTH_ID), MarginfiError::InvalidOracleAccount);
-    msg!("------------------------- before price_feed");
+    // msg!("------------------------- before price_feed");
     let price_feed = SolanaPriceAccount::account_info_to_feed(ai).map_err(
         |_| MarginfiError::InvalidOracleAccount
     )?;
-    msg!("------------------------- after price_feed");
+    // msg!("------------------------- after price_feed");
     Ok(price_feed)
 }
 
